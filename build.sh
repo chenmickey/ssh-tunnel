@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # author : owen-carter
 
-remoteIp=47.92.160.84
+remoteIp=
 remotePort=22
-remoteUser=dysec
+remoteUser=
 rsaPath=~/.ssh/id_rsa.pub
 
 bridgePort=10037
@@ -20,14 +20,12 @@ else
 fi
 
 sudo ssh-copy-id -p 22 -i ${rsaPath} ${remoteUser}@${remoteIp}
-sudo touch /var/log/ssh_nat.log
-sudo chmod 777 /var/log/ssh_nat.log
 
 echo "Start to write the autossh.service"
 sudo cat >> /etc/supervisor/config.d/autossh.ini <<EOF
 [program:autossh]
 command=/usr/bin/autossh -M 7777 -NR ${bridgePort}:localhost:22 ${remoteUser}@${remoteIp} -p22
-directory=/opt/dac/
+directory=~
 numprocs=1
 process_name=%(program_name)s
 priority=999
