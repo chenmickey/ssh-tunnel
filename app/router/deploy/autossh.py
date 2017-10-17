@@ -3,9 +3,9 @@
 
 from flask import g
 
-from ...router import deploy
-from ...utils.autossh import AutoSsh
-from ...utils.msg import Msg
+from . import deploy
+from .. import AutoSsh
+from .. import Msg
 
 
 @deploy.route('/query', methods=['get'])
