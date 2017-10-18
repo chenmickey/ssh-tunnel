@@ -5,7 +5,7 @@
 + 配置客户机器
 ```bash
 remoteIp=
-bridgePort=10000
+bridgePort=1000
 remoteUser=root
 sudo yum install autossh openssh-server -y
 sudo ssh-copy-id -p 22 ${remoteUser}@${remoteIp} 
