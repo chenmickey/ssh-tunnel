@@ -7,9 +7,7 @@
 remoteIp=
 bridgePort=10000
 remoteUser=root
-
 sudo yum install autossh openssh-server -y
-
 sudo ssh-copy-id -p 22 ${remoteUser}@${remoteIp} 
 ```
 + 在客户机器和vps机器之间建立隧道
@@ -38,3 +36,7 @@ echo "如果存在程序监听10000端口，说明客户机和vps之间隧道建
 ssh -p 10000 root@localhost
 ```
 
+
+## How to install?
++ 如何下载
++ 如何安装
