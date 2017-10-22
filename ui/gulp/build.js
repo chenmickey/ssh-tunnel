@@ -42,21 +42,25 @@ gulp.task('html', ['inject', 'partials'], function () {
         .pipe($.inject(partialsInjectFile, partialsInjectOptions))
         .pipe(assets = $.useref.assets())
         .pipe($.rev())
+
         .pipe(jsFilter)
         .pipe($.sourcemaps.init())
         .pipe($.ngAnnotate())
         .pipe($.uglify({preserveComments: $.uglifySaveLicense})).on('error', conf.errorHandler('Uglify'))
         .pipe($.sourcemaps.write('maps'))
         .pipe(jsFilter.restore)
+
         .pipe(cssFilter)
         .pipe($.sourcemaps.init())
         .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', '../fonts/'))
         .pipe($.minifyCss({processImport: false}))
         .pipe($.sourcemaps.write('maps'))
         .pipe(cssFilter.restore)
+
         .pipe(assets.restore())
         .pipe($.useref())
         .pipe($.revReplace())
+
         .pipe(htmlFilter)
         .pipe($.minifyHtml({
             empty       : true,
@@ -65,6 +69,7 @@ gulp.task('html', ['inject', 'partials'], function () {
             conditionals: true
         }))
         .pipe(htmlFilter.restore)
+
         .pipe(gulp.dest(path.join(conf.paths.dist, '/')))
         .pipe($.size({title: path.join(conf.paths.dist, '/'), showFiles: true}));
 });

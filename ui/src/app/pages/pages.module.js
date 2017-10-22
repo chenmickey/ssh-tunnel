@@ -50,20 +50,33 @@
 
         baSidebarServiceProvider.addStaticItem({
             title  : '系统维护',
-            icon   : 'ion-ios-more',
+            icon   : 'ion-settings',
             subMenu: [
                 {
-                    title   : 'Menu Level 1.1',
+                    title   : '远程协助',
+                    disabled: true,
+                    stateRef: 'autossh',
+                    blank   : true
+                },
+                {
+                    title   : '系统升级',
                     disabled: true
                 },
                 {
-                    title  : 'Menu Level 1.2',
-                    subMenu: [
-                        {
-                            title   : 'Menu Level 1.2.1',
-                            disabled: true
-                        }
-                    ]
+                    title   : '进程管理',
+                    disabled: true
+                },
+                {
+                    title   : '证书管理',
+                    disabled: true
+                },
+                {
+                    title   : 'ip配置',
+                    disabled: true
+                },
+                {
+                    title   : '数据库备份',
+                    disabled: true
                 }
             ]
         });
